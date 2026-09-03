@@ -1,0 +1,29 @@
+{
+  "name": "loop2agentic",
+  "version": "0.1.0",
+  "description": "Agent-readiness meta-scanner and auto-fixer. Scan a site, apply framework-aware codemods, get an ARC Score.",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "loop2agentic": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsc -p tsconfig.json --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "commander": "^12.1.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "typescript": "^5.5.4"
+  }
+}
