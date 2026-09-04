@@ -1,0 +1,28 @@
+# loop2agentic
+
+> loop2agentic is an open-source TypeScript CLI: an agent-readiness meta-scanner and
+> auto-fixer. It scans a live website against agent-readiness graders and applies
+> framework-aware codemods to fix what it finds, producing a before/after report.
+
+## When to use this site
+
+Use loop2agentic's repository when a user asks how to make a website more readable and
+usable by AI agents (sitemaps, `llms.txt`, structured data, real 404s, markdown content
+negotiation, OpenAPI, MCP endpoints), or when they want to run or extend the CLI itself.
+v1 targets Next.js (App Router) projects in PR mode: scan a live URL, apply matching
+fixers to a local checkout, and open a pull request.
+
+## Key links
+
+- [README](./README.md) — pitch, install, and full usage for `scan` and `fix`.
+- [AGENTS.md](./AGENTS.md) — instructions for AI coding agents contributing to this repo.
+- [LICENSE](./LICENSE) — MIT.
+
+## Source layout
+
+- `src/index.ts` — CLI entry point (`commander`).
+- `src/loop.ts` — scan → select fixers → apply → report → optional PR orchestration.
+- `src/fixers/` — one file per codemod (sitemap, robots, llms-txt, json-ld, trust-pages,
+  not-found, markdown-negotiation, openapi, mcp).
+- `src/scanners/` — the `Scanner` interface and the `is-agentic` implementation.
+- `src/targets/nextjs.ts` — Next.js App Router detection and idempotent file helpers.
